@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clinica Dental - Gestión de citas</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    
+    <header class="header">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">🦷</div>
+        <div>
+          <h1>Clinica Dental</h1>
+          <p class="subtitle">Gestión diaria de citas - Recepción</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <section class="card">
+        <h2>Nueva cita / Modificar cita</h2>
+
+        
+        <div id="formMessage" class="form-message" aria-live="polite"></div>
+
+        <form id="appointmentForm" novalidate>
+          
+          <input type="hidden" id="appointmentId" name="appointmentId" />
+
+          <fieldset class="fieldset">
+            <legend>Fecha y hora de la cita</legend>
+
+            <div class="grid">
+              <div class="field">
+                <label for="date">Fecha (día/mes/año)</label>
+                <input type="date" id="date" name="date" />
+                <small class="error" data-error-for="date"></small>
+              </div>
+
+              <div class="field">
+                <label for="time">Hora (hora/minuto)</label>
+                <input type="time" id="time" name="time" />
+                <small class="error" data-error-for="time"></small>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend>Datos del paciente</legend>
+
+            <div class="grid">
+              <div class="field">
+                <label for="firstName">Nombre</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Ej. Ana" />
+                <small class="error" data-error-for="firstName"></small>
+              </div>
+
+              <div class="field">
+                <label for="lastName">Apellidos</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Ej. García López" />
+                <small class="error" data-error-for="lastName"></small>
+              </div>
+
+              <div class="field">
+                <label for="dni">DNI</label>
+                <input type="text" id="dni" name="dni" placeholder="12345678Z" />
+                <small class="error" data-error-for="dni"></small>
+              </div>
+
+              <div class="field">
+                <label for="phone">Teléfono</label>
+                <input type="text" id="phone" name="phone" placeholder="Ej. 600123456" />
+                <small class="error" data-error-for="phone"></small>
+              </div>
+
+              <div class="field">
+                <label for="birthDate">Fecha de nacimiento</label>
+                <input type="date" id="birthDate" name="birthDate" />
+                <small class="error" data-error-for="birthDate"></small>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="notes">Observaciones</label>
+              <textarea id="notes" name="notes" rows="3" placeholder="Notas para el odontólogo/a..."></textarea>
+              <small class="error" data-error-for="notes"></small>
+            </div>
+          </fieldset>
+
+          <div class="actions">
+            <button type="submit" id="saveBtn">Guardar cita</button>
+            <button type="button" id="clearBtn" class="secondary">Limpiar formulario</button>
+          </div>
+        </form>
+      </section>
+
+      
+      <section class="card">
+        <h2>Listado de citas</h2>
+
+        <div class="table-wrap">
+          <table class="table" aria-describedby="tableHelp">
+            <caption id="tableHelp" class="sr-only">
+              Tabla de citas guardadas.
+            </caption>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Paciente</th>
+                <th>DNI</th>
+                <th>Teléfono</th>
+                <th>Nacimiento</th>
+                <th>Observaciones</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="appointmentsBody">
+              <tr id="emptyRow">
+                <td colspan="9" class="empty">dato vacío</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p><strong>Clinica Dental</strong> · Contacto: 959 000 000 · recepcion@clinicadental.com</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
